@@ -2,11 +2,6 @@ import * as AdminService from "../services/AdminService.js";
 import express, { response } from 'express';
 export const router = express.Router();
 
-
-
-
-
-
 /**
  * @swagger
  * /admin/transferStakingTokensToUser:
