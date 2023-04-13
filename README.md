@@ -3,7 +3,7 @@
 # Description:
 There are 3 smart contact:
 
-mainToken.sol
+MainToken.sol
 RewardToken.sol
 StakingToken.sol
 
