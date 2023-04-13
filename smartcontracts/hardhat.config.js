@@ -32,8 +32,7 @@ module.exports = {
   },
   networks: {
     miRed: {
-          //url: `http://localhost:8545`,
-          url: `https://sepolia.infura.io/v3/c9211f7159d34e6ba089c2a8b5fc680c`,
+          url: `http://localhost:8545`,
           accounts: [`0x${process.env.ADMIN_PRIV_KEY}`]
         }
   }
