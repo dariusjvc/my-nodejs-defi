@@ -21,10 +21,19 @@ if (typeof web3 !== 'undefined') {
 web3.eth.accounts.wallet.add(process.env.ADMIN_PRIVATE_KEY)
 
 const stToken = new web3.eth.Contract(ST_CONTACT_ABI, ST_CONTACT_ADDRESS );
+const rtToken = new web3.eth.Contract(RT_CONTACT_ABI, RT_CONTACT_ADDRESS );
 
 
-function getTotalMinted(){ 
+function getUserSTBalance(){ 
     return stToken.methods.balanceOf(process.env.USER_PUBLIC_KEY).call((error, balance) => {
+        if (error) {
+            console.log("An error occurred", error)
+          }
+          console.log("The balance is: ", balance/100)
+          });
+}
+function getUserRTBalance(){ 
+    return rtToken.methods.balanceOf(process.env.USER_PUBLIC_KEY).call((error, balance) => {
         if (error) {
             console.log("An error occurred", error)
           }
@@ -33,5 +42,6 @@ function getTotalMinted(){
 }
 
 export {
-    getTotalMinted
+    getUserSTBalance,
+    getUserRTBalance
   };
