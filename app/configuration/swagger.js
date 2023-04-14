@@ -29,8 +29,7 @@ const options = {
     host: 'localhost:3000',
     basePath: '/api',
   },
-  apis: [ './app/controllers/AdminController.js','./app/controllers/UserController.js','./app/models/admin-model.js', './app/models/transfer-model.js'],
-
+  apis: [ './app/controllers/AdminController.js','./app/controllers/UserController.js','./app/models/admin-model.js', './app/models/transfer-model.js', './app/models/stake-model.js'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

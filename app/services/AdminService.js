@@ -41,7 +41,7 @@ function transferSTToUser(value){
 
 
 function transferSTToSpender(value){ 
-    return stToken.methods.transfer(process.env.SPENDER_TOKEN_ADDRESS,value).send(
+    return stToken.methods.transfer(MT_CONTACT_ADDRESS,value).send(
         {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
         if (error) {
@@ -52,7 +52,7 @@ function transferSTToSpender(value){
 }
 
 function transferRTToSpender(value){ 
-    return rtToken.methods.transfer(process.env.SPENDER_TOKEN_ADDRESS,value).send(
+    return rtToken.methods.transfer(MT_CONTACT_ADDRESS,value).send(
         {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
         if (error) {
