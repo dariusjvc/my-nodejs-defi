@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 const port = 3000;
 
 import { router as adminRouter } from './app/controllers/AdminController.js';
+import { router as userRouter } from './app/controllers/UserController.js';
 import { router as swaggerRouter } from './app/configuration/swagger.js';
 
 var app = express();
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api/admin', adminRouter);
+app.use('/api/user', userRouter);
 app.use('/api/docs', swaggerRouter);
 
 // catch 404 and forward to error handler

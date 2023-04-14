@@ -20,7 +20,6 @@ if (typeof web3 !== 'undefined') {
 //Add the account from which to send the transaction into a wallet
 web3.eth.accounts.wallet.add(process.env.ADMIN_PRIVATE_KEY)
 
-//const contactList = new web3.eth.Contract(ST_CONTACT_ABI, ST_CONTACT_ADDRESS , {from: process.env.ADMIN_PUBLIC_KEY});
 const stToken = new web3.eth.Contract(ST_CONTACT_ABI, ST_CONTACT_ADDRESS );
 const rtToken = new web3.eth.Contract(RT_CONTACT_ABI, RT_CONTACT_ADDRESS );
 const mtToken = new web3.eth.Contract(MT_CONTACT_ABI, MT_CONTACT_ADDRESS );

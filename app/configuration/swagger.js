@@ -19,13 +19,17 @@ const options = {
       {
         name: 'admin-controller',
         description: 'Admin API',
+      },
+      {
+        name: 'user-controller',
+        description: 'User API',
       }
     ],
     schemes: ['http'],
     host: 'localhost:3000',
     basePath: '/api',
   },
-  apis: [ './app/controllers/AdminController.js','./app/models/admin-model.js', './app/models/transfer-model.js'],
+  apis: [ './app/controllers/AdminController.js','./app/controllers/UserController.js','./app/models/admin-model.js', './app/models/transfer-model.js'],
 
 };
 
