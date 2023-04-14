@@ -32,8 +32,6 @@ router.post('/transferStakingTokensToUser', async (req, res, next) => {
   const response = dao.create(req.body);
   Swagger.validateModel('Stock', response);
   res.send(response);*/
-
- 
 });
 
 /**
@@ -100,8 +98,6 @@ router.post('/transferRewardTokensToSpender', async (req, res, next) => {
   const response = dao.create(req.body);
   Swagger.validateModel('Stock', response);
   res.send(response);*/
-
- 
 });
 
 /**
@@ -127,6 +123,4 @@ router.post('/rewardUser', async (req, res, next) => {
   const response = dao.create(req.body);
   Swagger.validateModel('Stock', response);
   res.send(response);*/
-
- 
 });

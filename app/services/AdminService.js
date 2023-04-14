@@ -11,6 +11,9 @@ import {MT_CONTACT_ABI} from '../abis/mainTokenConfig.js';
 import "dotenv/config.js";
 
 
+var gasLimit = 2000000;
+
+
 if (typeof web3 !== 'undefined') {
     var web3 = new Web3(web3.currentProvider); 
     } else {
@@ -25,31 +28,10 @@ const rtToken = new web3.eth.Contract(RT_CONTACT_ABI, RT_CONTACT_ADDRESS );
 const mtToken = new web3.eth.Contract(MT_CONTACT_ABI, MT_CONTACT_ADDRESS );
 
 
-/*function getTotalMinted(){ 
-    return stToken.methods.balanceOf(process.env.ADMIN_PUBLIC_KEY).call((error, balance) => {
-        if (error) {
-            console.log("An error occurred", error)
-          }
-          console.log("The balance is: ", balance/100)
-          });
-}*/
-/*
-function getTokenName(){
-
-      return stToken.methods.name().call((error,tokenName) => {
-        if (error) {
-            console.log("An error occurred", error)
-          }
-          console.log("The tokenName is: ",tokenName)
-          });
-
-}*/
-
 function transferSTToUser(value){ 
-    return stToken.methods.transfer(process.env.USER_PUBLIC_KEY,value).call(
-        {from: process.env.ADMIN_PUBLIC_KEY},
+    return stToken.methods.transfer(process.env.USER_PUBLIC_KEY,value).send(
+        {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
-        //return stToken.methods.name().call((error,result) => {
         if (error) {
             console.log("An error occurred", error)
           }
@@ -59,10 +41,9 @@ function transferSTToUser(value){
 
 
 function transferSTToSpender(value){ 
-    return stToken.methods.transfer(process.env.SPENDER_TOKEN_ADDRESS,value).call(
-        {from: process.env.ADMIN_PUBLIC_KEY},
+    return stToken.methods.transfer(process.env.SPENDER_TOKEN_ADDRESS,value).send(
+        {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
-        //return contactList.methods.name().call((error,result) => {
         if (error) {
             console.log("An error occurred", error)
           }
@@ -71,10 +52,9 @@ function transferSTToSpender(value){
 }
 
 function transferRTToSpender(value){ 
-    return rtToken.methods.transfer(process.env.SPENDER_TOKEN_ADDRESS,value).call(
-        {from: process.env.ADMIN_PUBLIC_KEY},
+    return rtToken.methods.transfer(process.env.SPENDER_TOKEN_ADDRESS,value).send(
+        {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
-        //return contactList.methods.name().call((error,result) => {
         if (error) {
             console.log("An error occurred", error)
           }
@@ -83,10 +63,9 @@ function transferRTToSpender(value){
 }
 
 function rewardUser(){ 
-    return mtToken.methods.issueTokens().call(
-        {from: process.env.ADMIN_PUBLIC_KEY},
+    return mtToken.methods.issueTokens().send(
+        {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
-        //return contactList.methods.name().call((error,result) => {
         if (error) {
             console.log("An error occurred", error)
           }
@@ -95,9 +74,7 @@ function rewardUser(){
 }
 
 export {
-    //getTotalMinted,
     transferSTToSpender,
-    //getTokenName,
     transferSTToUser,
     transferRTToSpender,
     rewardUser
