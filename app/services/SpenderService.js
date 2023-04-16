@@ -6,12 +6,9 @@ import {RT_CONTACT_ADDRESS} from '../abis/rewardTokenConfig.js';
 import {RT_CONTACT_ABI} from '../abis/rewardTokenConfig.js'; 
 
 import {MT_CONTACT_ADDRESS} from '../abis/mainTokenConfig.js'; 
-import {MT_CONTACT_ABI} from '../abis/mainTokenConfig.js'; 
 
 import "dotenv/config.js";
 
-
-var gasLimit = 2000000;
 
 
 if (typeof web3 !== 'undefined') {
@@ -25,7 +22,6 @@ web3.eth.accounts.wallet.add(process.env.ADMIN_PRIVATE_KEY)
 
 const stToken = new web3.eth.Contract(ST_CONTACT_ABI, ST_CONTACT_ADDRESS );
 const rtToken = new web3.eth.Contract(RT_CONTACT_ABI, RT_CONTACT_ADDRESS );
-const mtToken = new web3.eth.Contract(MT_CONTACT_ABI, MT_CONTACT_ADDRESS );
 
 
 function getSpenderSTBalance(){ 
