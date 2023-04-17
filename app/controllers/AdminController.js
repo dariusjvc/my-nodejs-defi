@@ -25,13 +25,8 @@ export const router = express.Router();
  *           $ref: '#/definitions/Transfer'
  */
 router.post('/transferStakingTokensToUser', async (req, res, next) => {
-  //console.log(req.body.value)
   var result = await AdminService.transferSTToUser(req.body.value);
-    res.send(result);
-  /*Swagger.validateModel('Stock', req.body);
-  const response = dao.create(req.body);
-  Swagger.validateModel('Stock', response);
-  res.send(response);*/
+  res.send(result);
 });
 
 /**
@@ -57,15 +52,8 @@ router.post('/transferStakingTokensToUser', async (req, res, next) => {
  *           $ref: '#/definitions/Transfer'
  */
 router.post('/transferStakingTokensToSpender', async (req, res, next) => {
-  //console.log(req.body.value)
   var result = await AdminService.transferSTToSpender(req.body.value);
-    res.send(result);
-  /*Swagger.validateModel('Stock', req.body);
-  const response = dao.create(req.body);
-  Swagger.validateModel('Stock', response);
-  res.send(response);*/
-
- 
+  res.send(result);
 });
 
 /**
@@ -91,13 +79,8 @@ router.post('/transferStakingTokensToSpender', async (req, res, next) => {
  *           $ref: '#/definitions/Transfer'
  */
 router.post('/transferRewardTokensToSpender', async (req, res, next) => {
-  //console.log(req.body.value)
   var result = await AdminService.transferRTToSpender(req.body.value);
-    res.send(result);
-  /*Swagger.validateModel('Stock', req.body);
-  const response = dao.create(req.body);
-  Swagger.validateModel('Stock', response);
-  res.send(response);*/
+  res.send(result);
 });
 
 /**
@@ -116,11 +99,6 @@ router.post('/transferRewardTokensToSpender', async (req, res, next) => {
  *           $ref: '#/definitions/Transfer'
  */
 router.post('/rewardUser', async (req, res, next) => {
-  //console.log(req.body.value)
   var result = await AdminService.rewardUser();
-    res.send(result);
-  /*Swagger.validateModel('Stock', req.body);
-  const response = dao.create(req.body);
-  Swagger.validateModel('Stock', response);
-  res.send(response);*/
+  res.send(result);
 });

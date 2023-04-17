@@ -47,8 +47,6 @@ router.get('/rewardToken/balance', async (req, res, next) => {
     res.send(response.toString());
     });
 
-
-
 /**
  * @swagger
  * /user/stakeTokens:
@@ -72,13 +70,8 @@ router.get('/rewardToken/balance', async (req, res, next) => {
  *           $ref: '#/definitions/Stake'
  */
 router.post('/stakeTokens', async (req, res, next) => {
-    //console.log(req.body.value)
     var result = await UserService.stakeTokens(req.body.value);
     res.send(result);
-    /*Swagger.validateModel('Stock', req.body);
-    const response = dao.create(req.body);
-    Swagger.validateModel('Stock', response);
-    res.send(response);*/
   });
 
 /**
@@ -104,16 +97,9 @@ router.post('/stakeTokens', async (req, res, next) => {
  *           $ref: '#/definitions/Stake'
  */
 router.post('/approveStaking', async (req, res, next) => {
-  //console.log(req.body.value)
   var result = await UserService.approveStaking(req.body.value);
   res.send(result);
-  /*Swagger.validateModel('Stock', req.body);
-  const response = dao.create(req.body);
-  Swagger.validateModel('Stock', response);
-  res.send(response);*/
 });
-  
-
 
 /**
  * @swagger
@@ -131,11 +117,6 @@ router.post('/approveStaking', async (req, res, next) => {
  *           $ref: '#/definitions/Transfer'
  */
 router.post('/unstakeTokens', async (req, res, next) => {
-  //console.log(req.body.value)
   var result = await UserService.unstakeTokens();
   res.send(result);
-  /*Swagger.validateModel('Stock', req.body);
-  const response = dao.create(req.body);
-  Swagger.validateModel('Stock', response);
-  res.send(response);*/
 });
