@@ -26,10 +26,11 @@ web3.eth.accounts.wallet.add(process.env.ADMIN_PRIVATE_KEY)
 const stToken = new web3.eth.Contract(ST_CONTACT_ABI, ST_CONTACT_ADDRESS );
 const rtToken = new web3.eth.Contract(RT_CONTACT_ABI, RT_CONTACT_ADDRESS );
 const mtToken = new web3.eth.Contract(MT_CONTACT_ABI, MT_CONTACT_ADDRESS );
+var decimals = await stToken.methods.getDecimals().call();
 
 
 function transferSTToUser(value){ 
-    return stToken.methods.transfer(process.env.USER_PUBLIC_KEY,value).send(
+    return stToken.methods.transfer(process.env.USER_PUBLIC_KEY, value*Math.pow(10, decimals)).send(
         {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
         if (error) {
@@ -41,7 +42,7 @@ function transferSTToUser(value){
 
 
 function transferSTToSpender(value){ 
-    return stToken.methods.transfer(MT_CONTACT_ADDRESS,value).send(
+    return stToken.methods.transfer(MT_CONTACT_ADDRESS,value*Math.pow(10, decimals)).send(
         {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
         if (error) {
@@ -52,7 +53,7 @@ function transferSTToSpender(value){
 }
 
 function transferRTToSpender(value){ 
-    return rtToken.methods.transfer(MT_CONTACT_ADDRESS,value).send(
+    return rtToken.methods.transfer(MT_CONTACT_ADDRESS,value*Math.pow(10, decimals)).send(
         {from: process.env.ADMIN_PUBLIC_KEY, gasLimit: gasLimit},
         (error,result) => {
         if (error) {

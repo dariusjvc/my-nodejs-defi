@@ -23,13 +23,14 @@ web3.eth.accounts.wallet.add(process.env.ADMIN_PRIVATE_KEY)
 const stToken = new web3.eth.Contract(ST_CONTACT_ABI, ST_CONTACT_ADDRESS );
 const rtToken = new web3.eth.Contract(RT_CONTACT_ABI, RT_CONTACT_ADDRESS );
 
+var decimals = await stToken.methods.getDecimals().call();
 
 function getSpenderSTBalance(){ 
     return stToken.methods.balanceOf(MT_CONTACT_ADDRESS).call((error, balance) => {
         if (error) {
             console.log("An error occurred", error)
           }
-          console.log("The balance is: ", balance/100)
+          console.log("The balance is: ", balance/Math.pow(10, decimals))
           });
 }
 
@@ -38,7 +39,7 @@ function getSpenderRTBalance(){
         if (error) {
             console.log("An error occurred", error)
           }
-          console.log("The balance is: ", balance/100)
+          console.log("The balance is: ", balance/Math.pow(10, decimals))
           });
 }
 
