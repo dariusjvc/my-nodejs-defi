@@ -15,7 +15,7 @@ node.js v18.16.0
 
 # How to deploy:
 1. Deploy the smart contracts in the blockchain network
-2. git clone https://github.com/dariusjvc/My-NodeJS-DeFi.git
+2. git clone https://github.com/dariusjvc/my-nodejs-defi.git
 3. Make sure you create an .env file with ADMIN_PUBLIC_KEY, ADMIN_PRIVATE_KEY, USER_PUBLIC_KEY, SPENDER_TOKEN_ADDRESS and the BLOCKCHAIN_INTERNAL_HOST inside, in the root of the project
 4. npm install
 5. npm run start-dev
